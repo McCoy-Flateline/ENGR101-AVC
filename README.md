@@ -1,2 +1,3 @@
 # ENGR101
-Vic Uni, ENGR101, group project 3
+
+This is the place for us to keep all the code for the project. 
