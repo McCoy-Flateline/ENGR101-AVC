@@ -20,7 +20,7 @@ The purpose of this project is to write software which guides a robot through a 
 - [GitHub Pages](https://github.com/McCoy-Flateline/ENGR101)
 
 ## Project Plan:
-
+----------------------------------------------------------------------------------------------------------------
 **Start Date:** Tuesday 26/05/2020  
 **Due Date:** Tuesday 02/06/2020   
 **Objective:** Start Project   
@@ -34,9 +34,10 @@ The purpose of this project is to write software which guides a robot through a 
 - [ ] All – Test all installations/help install SFML on all team member’s computers 
 - [x] Selby – Create Trello board and invite everyone 
 
+***
 
 **Start Date:** 01/06/2020   
-**Due Date:** 06/06/2020   
+**Due Date:** 07/06/2020   
 **Objective:** Image Processor Core   
 **Conflicts:** COMP102 Assignment, CYBR171 Assignment, ENGR121 Assignment   
 **Tasks:**
@@ -49,6 +50,7 @@ The purpose of this project is to write software which guides a robot through a 
 - [ ] Deepkrsna – Commit to branch  
 - [ ] Deepkrsna– Create pull request
 
+***
 
 **Start Date:** 02/06/2020   
 **Due Date:** 07/06/2020   
@@ -64,6 +66,7 @@ The purpose of this project is to write software which guides a robot through a 
 - [ ] Commit to branch
 - [ ] Create pull request  
 
+***
 
 **Start Date:** 02/06/2020   
 **Due Date:** 13/06/2020   
@@ -75,10 +78,11 @@ The purpose of this project is to write software which guides a robot through a 
 - [ ] Selby - Implement obstacle recognition
 - [ ] Selby - Implement intersection recognition
 - [ ] Selby - Submit code for testing 
-- [ ] Deepkrsna –Test code and provide feedback 
+- [ ] Deepkrsna – Test code and provide feedback 
 - [ ] Selby - Improve based on the feedback (if any) 
 - [ ] Selby - Commit to branch
 
+***
 
 **Start Date:** 02/06/2020   
 **Due Date:** 13/06/2020   
@@ -94,6 +98,7 @@ The purpose of this project is to write software which guides a robot through a 
 - [ ] Commit to branch  
 - [ ] Create pull request  
 
+***
 
 **Start Date:** 07/06/2020   
 **Due Date:** 15/06/2020   
@@ -108,6 +113,7 @@ The purpose of this project is to write software which guides a robot through a 
 - [ ] Deepkrsna – Commit to branch  
 - [ ] Deepkrsna – Create pull request  
 
+***
 
 **Start Date:** 02/06/2020   
 **Due Date:** 19/06/2020   
