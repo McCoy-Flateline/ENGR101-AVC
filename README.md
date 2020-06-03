@@ -30,7 +30,7 @@ The purpose of this project is to write software which guides a robot through a 
 - [x] Deepkrsna – Setup Facebook group chat 
 - [x] Selby & Deepkrsna – Complete plan for ImageProcessor class 
 - [x] Ella & Elliot – Complete plan for RobotMovement class 
-- [ ] All – Merge both plans to form the AVC project plan 
+- [x] All – Merge both plans to form the AVC project plan 
 - [ ] All – Test all installations/help install SFML on all team member’s computers 
 - [x] Selby – Create Trello board and invite everyone 
 
@@ -41,7 +41,7 @@ The purpose of this project is to write software which guides a robot through a 
 **Objective:** Image Processor Core   
 **Conflicts:** COMP102 Assignment, CYBR171 Assignment, ENGR121 Assignment   
 **Tasks:**
-- [ ] Deepkrsna – Create a development branch for Image Processor Core  
+- [x] Deepkrsna – Create a development branch for Image Processor Core  
 - [ ] Deepkrsna – Implement line recognition  
 - [ ] Deepkrsna – Implement obstacle recognition 
 - [ ] Deepkrsna – Submit code for testing 
