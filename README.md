@@ -65,8 +65,8 @@ The purpose of this project is to write software which guides a robot through a 
 - [ ] Create pull request  
 
 
-**Start Date:** TBD    
-**Due Date:** TBD   
+**Start Date:** 02/06/2020   
+**Due Date:** 13/06/2020   
 **Objective:** Image Processor Completion   
 **Conflicts:** N/A   
 **Tasks:**
