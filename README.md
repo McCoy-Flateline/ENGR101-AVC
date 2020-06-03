@@ -1,4 +1,4 @@
-# ENGR101_2020 AVC Project
+# ENGR101_2020 AVC Project (Team 4)
 
 ### Team Members:
 - Deepkrsna Arora (aroradeep-DK) ~ aroradeep@myvuw.ac.nz
