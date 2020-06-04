@@ -1,6 +1,6 @@
 # ENGR101_2020 AVC Project (Team 4)
 
-### Team Members:
+### Team Members & Contact Info:
 - Deepkrsna Arora (aroradeep-DK) ~ aroradeep@myvuw.ac.nz
 - Selby Dasent (McCoy-Flateline) ~ dasentselb@myvuw.ac.nz
 - Elliot Rose (jesusonweels) ~ roseelli@myvuw.ac.nz
@@ -20,7 +20,6 @@ The purpose of this project is to write software which guides a robot through a 
 - [GitHub Pages](https://github.com/McCoy-Flateline/ENGR101)
 
 ## Project Plan:
-----------------------------------------------------------------------------------------------------------------
 **Start Date:** Tuesday 26/05/2020  
 **Due Date:** Tuesday 02/06/2020   
 **Objective:** Start Project   
