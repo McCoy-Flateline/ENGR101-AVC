@@ -57,14 +57,14 @@ The purpose of this project is to write software which guides a robot through a 
 **Objective:** Movement Class Core   
 **Conflicts:** N/A   
 **Tasks:**
-- [ ]  Create a development branch for Movement Core 
+- [ ] Ella - Create a development branch for Movement Core 
 - [ ] Elliott - Assign variables and fields for basic movement 
-- [ ] Calculate the speeds of the left and right motors
-- [ ] Submit code for testing 
-- [ ] Test code and provide feedback 
-- [ ] Improve based on the feedback (if any) 
-- [ ] Commit to branch
-- [ ] Create pull request  
+- [ ] Elliott & Ella - Calculate the speeds of the left and right motors
+- [ ] Elliott & Ella - Submit code for testing 
+- [ ] Elliott & Ella - Test code and provide feedback 
+- [ ] Elliott & Ella - Improve based on the feedback (if any) 
+- [ ] Elliott - Commit to branch
+- [ ] Elliott - Create pull request  
 
 ***
 
@@ -89,14 +89,14 @@ The purpose of this project is to write software which guides a robot through a 
 **Objective:** Movement Class Completion     
 **Conflicts:** N/A   
 **Tasks:**
-- [ ] Create a development branch for Movement Completion 
-- [ ] Use intersection recognition to make a decision about which path to follow (turning left when possible)
-- [ ] Determine movement when faced with obstacle
-- [ ] Submit code for testing 
-- [ ] Test code and provide feedback 
-- [ ] Improve based on the feedback (if any)
-- [ ] Commit to branch  
-- [ ] Create pull request  
+- [ ] Elliott - Create a development branch for Movement Completion 
+- [ ] Elliott & Ella - Use intersection recognition to make a decision about which path to follow (turning left when possible)
+- [ ] Ella - Determine movement when faced with obstacle
+- [ ] Elliott - Submit code for testing 
+- [ ] Elliott - Test code and provide feedback 
+- [ ] Elliott & Ella - Improve based on the feedback (if any)
+- [ ] Ella - Commit to branch  
+- [ ] Ella - Create pull request  
 
 ***
 
@@ -120,10 +120,10 @@ The purpose of this project is to write software which guides a robot through a 
 **Objective:** Movement Class Challenge   
 **Conflicts:** N/A   
 **Tasks:**
-- [ ] Create a development branch for Movement Challenge 
-- [ ] create system for navigating through maze without a guide 
-- [ ] Submit code for testing 
-- [ ] Test code and provide feedback 
-- [ ] Improve based on the feedback (if any)
-- [ ] Commit to branch  
-- [ ] Create pull request  
+- [ ] Elliott - Create a development branch for Movement Challenge 
+- [ ] Elliott & Ella - create system for navigating through maze without a guide 
+- [ ] Ella - Submit code for testing 
+- [ ] Ella - Test code and provide feedback 
+- [ ] Elliott & Ella - Improve based on the feedback (if any)
+- [ ] Elliott - Commit to branch  
+- [ ] Elliott - Create pull request  
