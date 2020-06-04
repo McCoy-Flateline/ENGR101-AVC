@@ -57,8 +57,8 @@ The purpose of this project is to write software which guides a robot through a 
 **Objective:** Movement Class Core   
 **Conflicts:** N/A   
 **Tasks:**
-- [ ] Create a development branch for Movement Core 
-- [ ] Assign variables and fields for basic movement 
+- [ ]  Create a development branch for Movement Core 
+- [ ] Elliott - Assign variables and fields for basic movement 
 - [ ] Calculate the speeds of the left and right motors
 - [ ] Submit code for testing 
 - [ ] Test code and provide feedback 
