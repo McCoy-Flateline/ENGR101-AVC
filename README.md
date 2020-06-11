@@ -41,9 +41,9 @@ The purpose of this project is to write software which guides a robot through a 
 **Conflicts:** COMP102 Assignment, CYBR171 Assignment, ENGR121 Assignment   
 **Tasks:**
 - [x] Deepkrsna – Create a development branch for Image Processor Core  
-- [ ] Deepkrsna – Implement line recognition  
-- [ ] Deepkrsna – Implement obstacle recognition 
-- [ ] Deepkrsna – Submit code for testing 
+- [x] Deepkrsna – Implement line recognition  
+- [x] Deepkrsna – Implement obstacle recognition 
+- [x] Deepkrsna – Submit code for testing 
 - [ ] Selby – Test code and provide feedback  
 - [ ] Deepkrsna – Improve based on the feedback (if any)  
 - [ ] Deepkrsna – Commit to branch  
@@ -56,7 +56,7 @@ The purpose of this project is to write software which guides a robot through a 
 **Objective:** Movement Class Core   
 **Conflicts:** N/A   
 **Tasks:**
-- [ ] Ella - Create a development branch for Movement Core 
+- [x] Ella - Create a development branch for Movement Core 
 - [ ] Elliott - Assign variables and fields for basic movement 
 - [ ] Elliott & Ella - Calculate the speeds of the left and right motors
 - [ ] Elliott & Ella - Submit code for testing 
