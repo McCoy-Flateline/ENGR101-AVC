@@ -44,10 +44,10 @@ The purpose of this project is to write software which guides a robot through a 
 - [x] Deepkrsna – Implement line recognition  
 - [x] Deepkrsna – Implement obstacle recognition 
 - [x] Deepkrsna – Submit code for testing 
-- [ ] Selby – Test code and provide feedback  
-- [ ] Deepkrsna – Improve based on the feedback (if any)  
-- [ ] Deepkrsna – Commit to branch  
-- [ ] Deepkrsna– Create pull request
+- [x] Selby – Test code and provide feedback  
+- [x] Deepkrsna – Improve based on the feedback (if any)  
+- [x] Deepkrsna – Commit to branch  
+- [x] Deepkrsna– Create pull request
 
 ***
 
