@@ -4,18 +4,24 @@
 struct Result {
 	bool onLine;
 	double error;
+	bool pathLeft; //added
+	bool pathFront; //added
+	bool pathRight; //added
 } result;
 
 class ImageProcessor {
 	private:
 		// Variables
-		int* a = new int[(int) cameraView.width];
+		int* front = new int[(int) cameraView.width];
+		int* left = new int[(int) cameraView.height]; //added
+		int* right = new int[(int) cameraView.height]; //added
 		const int ROW = (int) cameraView.height/2.0;
 		int sumOfWhiteIndexes = 0;
 		int numberOfWhitePixels = 0;
 		// Class Methods
 		void getWhitePixles();
 		void calculateError();
+		void intersectionCheck(); //added
 	public:
 		// Constructor
 		ImageProcessor();
@@ -27,6 +33,7 @@ class ImageProcessor {
 ImageProcessor::ImageProcessor() {
 	takePicture();
 	calculateError();
+	intersectionCheck(); //added
 }
 
 /**
@@ -40,11 +47,25 @@ void ImageProcessor::getWhitePixles() {
 		int pixelWhiteness = (int) get_pixel(cameraView, ROW, i, 3);
 		// Update array based on pixel colour
 		if (pixelWhiteness == 255) {
-			a[i] = 1;
+			front[i] = 1;
 			sumOfWhiteIndexes += i;
 			numberOfWhitePixels++;
 		} else {
-			a[i] = 0;
+			front[i] = 0;
+		}
+	}
+	for (int j = 0; j < cameraView.height; j++){
+		int leftPixelWhiteness = (int) get_pixel(cameraView, j, 2, 3);
+		int rightPixelWhitness = (int) get_pixel(cameraView, j, cameraView.height-2, 3);
+		if (leftPixelWhiteness == 255) {
+			left[j] = 1;
+		} else {
+			left[j] = 0;
+		}
+		if (rightPixelWhitness == 255) {
+			right[j] = 1;
+		} else {
+			right[j] = 0;
 		}
 	}
 }
@@ -69,5 +90,26 @@ void ImageProcessor::calculateError() {
 		result.onLine = false;
 		result.error = 0;
 	}
-	delete(a);
+}
+
+void ImageProcessor::intersectionCheck() {
+	//check left path
+	//check right path
+	//check front path
+	int halfHeight = cameraView.height / 2;
+	
+	if (left[halfHeight] == 1){
+		result.pathLeft = true;
+	} else {
+		result.pathLeft = false;
+	}
+	
+	if (right[halfHeight] == 1){
+		result.pathRight = true;
+	} else {
+		result.pathRight = false;
+	}
+	delete(left);
+	delete(right);
+	delete(front);
 }
