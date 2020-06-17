@@ -112,6 +112,7 @@ void ImageProcessor::calculateError() {
  * 		- frontPath = true/flase
  */
 void ImageProcessor::intersectionCheck() {
+	//set where to look for line on the edge
 	int halfHeight = cameraView.height / 2;
 	
 	//check left path
