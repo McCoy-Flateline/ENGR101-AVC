@@ -2,19 +2,18 @@
 
 // Result Struct
 struct Result {
-	bool onLine;
+	bool foundWall = false;
 	double error;
 } result;
 
 class ImageProcessor {
 	private:
 		// Variables
-		int* a = new int[(int) cameraView.width];
-		const int ROW = (int) cameraView.height/2.0;
-		int sumOfWhiteIndexes = 0;
-		int numberOfWhitePixels = 0;
+		int viewCenter;
+		int row;
+		int buffer = 20;
 		// Class Methods
-		void getWhitePixles();
+		int distanceToWall();
 		void calculateError();
 	public:
 		// Constructor
@@ -26,27 +25,26 @@ class ImageProcessor {
  */
 ImageProcessor::ImageProcessor() {
 	takePicture();
+	viewCenter = (int) (cameraView.width/2.0);
+	row = (int) (cameraView.height * 0.75);
 	calculateError();
 }
 
 /**
- * Gets the number of white pixels and
- * stores it in an array
+ * Calculates and returns the distance
+ * from the cameraView's center to the
+ * left wall's right edge.
  */
-void ImageProcessor::getWhitePixles() {
-	// Check each pixel in row selected
-	for (int i = 0; i < cameraView.width; i++) {
-		// Get pixel whiteness
-		int pixelWhiteness = (int) get_pixel(cameraView, ROW, i, 3);
-		// Update array based on pixel colour
-		if (pixelWhiteness == 255) {
-			a[i] = 1;
-			sumOfWhiteIndexes += i;
-			numberOfWhitePixels++;
-		} else {
-			a[i] = 0;
+int ImageProcessor::distanceToWall() {
+	for (int i = viewCenter; i > 0; i--) {
+		int pixelRedness = (int) get_pixel(cameraView, row, i, 0);
+		int pixelBlueness = (int) get_pixel(cameraView, row, i , 2);
+		if ((pixelRedness > 250) && (pixelBlueness < 5)) {
+			return i;
 		}
 	}
+	// Wall not found
+	return -1;
 }
 
 /**
@@ -54,20 +52,21 @@ void ImageProcessor::getWhitePixles() {
  * view's center and white line's center)
  */
 void ImageProcessor::calculateError() {
-	// Update array
-	getWhitePixles();
-	// Variables
-	double arrayCenter = cameraView.width/2.0;
-	double whiteLineCenter;
-	// Update result struct based on cameraView
-	if (numberOfWhitePixels > 0) {
-		whiteLineCenter = sumOfWhiteIndexes/numberOfWhitePixels;
-		result.onLine = true;
-		result.error = arrayCenter - whiteLineCenter;
+	int distanceFromCenter = distanceToWall();
+	// Check if maze has been detected
+	if (result.foundWall) {
+		if (distanceFromCenter == -1) {
+			// Left
+			result.error = -100;
+		} else {
+			// Centralize robot
+			result.error = buffer - distanceFromCenter;
+		}
 	} else {
-		whiteLineCenter = arrayCenter;
-		result.onLine = false;
-		result.error = 0;
+		if (distanceFromCenter != -1) {
+			// Straight
+			result.foundWall = true;
+			result.error = buffer - distanceFromCenter;
+		}
 	}
-	delete(a);
 }
