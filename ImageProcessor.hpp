@@ -47,7 +47,7 @@ void ImageProcessor::getWhitePixles() {
 	for (int i = 0; i < cameraView.width; i++) {
 		// Get pixel whiteness
 		int pixelWhiteness = (int) get_pixel(cameraView, ROW, i, 3);
-		int frontPixelWhiteness = (int) get_pixel(cameraView, cameraView.height - 2, i, 3);
+		int frontPixelWhiteness = (int) get_pixel(cameraView, 2, i, 3);
 		// Update array based on pixel colour
 		if (pixelWhiteness == 255) {
 			line[i] = 1;
@@ -65,7 +65,7 @@ void ImageProcessor::getWhitePixles() {
 	//creates an array containing white pixels on left/right edge of screen 2 pixles in
 	for (int j = 0; j < cameraView.height; j++){
 		int leftPixelWhiteness = (int) get_pixel(cameraView, j, 2, 3);
-		int rightPixelWhitness = (int) get_pixel(cameraView, j, cameraView.height-2, 3);
+		int rightPixelWhitness = (int) get_pixel(cameraView, j, cameraView.width - 2, 3);
 		if (leftPixelWhiteness == 255) {
 			left[j] = 1;
 		} else {
@@ -112,17 +112,17 @@ void ImageProcessor::calculateError() {
  * 		- frontPath = true/flase
  */
 void ImageProcessor::intersectionCheck() {
-	//set where to look for line on the edge
-	int halfHeight = cameraView.height / 2;
-	
+	//set loction to look for line
+	int check = cameraView.height / 2; 
+	 
 	//check left path
-	if (left[halfHeight] == 1){
+	if (left[check] == 1){
 		result.pathLeft = true;
 	} else {
 		result.pathLeft = false;
 	}
 	//check right path
-	if (right[halfHeight] == 1){
+	if (right[check] == 1){
 		result.pathRight = true;
 	} else {
 		result.pathRight = false;
