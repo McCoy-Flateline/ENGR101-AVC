@@ -74,9 +74,9 @@ The purpose of this project is to write software which guides a robot through a 
 **Tasks:**
 - [x] Selby - Create a development branch for Image Processor Completion
 - [x] Selby - Implement line recognition 
-- [ ] Selby - Implement obstacle recognition
+- [x] Selby - Implement obstacle recognition
 - [x] Selby - Implement intersection recognition
-- [ ] Selby - Submit code for testing 
+- [x] Selby - Submit code for testing 
 - [ ] Deepkrsna – Test code and provide feedback 
 - [ ] Selby - Improve based on the feedback (if any) 
 - [ ] Selby - Commit to branch
