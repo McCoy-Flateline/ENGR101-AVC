@@ -7,6 +7,7 @@ struct Result {
 	bool pathLeft; //added
 	bool pathFront; //added
 	bool pathRight; //added
+
 } result;
 
 class ImageProcessor {
@@ -20,6 +21,9 @@ class ImageProcessor {
 		const int ROW = (int) cameraView.height/2.0;
 		int sumOfWhiteIndexes = 0;
 		int numberOfWhitePixels = 0;
+		int obstacleLeft = 0;
+		int obstacleRight = 0;
+		int obstacleFront = 0;
 		// Class Methods
 		void getWhitePixles();
 		void calculateError();
@@ -53,11 +57,13 @@ void ImageProcessor::getWhitePixles() {
 			line[i] = 1;
 			sumOfWhiteIndexes += i;
 			numberOfWhitePixels++;
+
 		} else {
 			line[i] = 0;
 		}
 		if (frontPixelWhiteness == 255) {
 			front[i] = 1;
+			obstacleFront ++;
 		} else {
 			front[i] = 0;
 		}
@@ -68,11 +74,13 @@ void ImageProcessor::getWhitePixles() {
 		int rightPixelWhitness = (int) get_pixel(cameraView, j, cameraView.width - 2, 3);
 		if (leftPixelWhiteness == 255) {
 			left[j] = 1;
+			obstacleLeft ++;
 		} else {
 			left[j] = 0;
 		}
 		if (rightPixelWhitness == 255) {
 			right[j] = 1;
+			obstacleRight ++;
 		} else {
 			right[j] = 0;
 		}
@@ -94,6 +102,7 @@ void ImageProcessor::calculateError() {
 		whiteLineCenter = sumOfWhiteIndexes/numberOfWhitePixels;
 		result.onLine = true;
 		result.error = arrayCenter - whiteLineCenter;
+		
 	} else {
 		whiteLineCenter = arrayCenter;
 		result.onLine = false;
@@ -114,26 +123,30 @@ void ImageProcessor::calculateError() {
 void ImageProcessor::intersectionCheck() {
 	//set loction to look for line
 	int check = cameraView.height / 2; 
+	int obstacleCount = 8; //how many white pixles before item counted as an obsticle
 	 
 	//check left path
-	if (left[check] == 1){
+	if (left[check] == 1 && obstacleLeft < obstacleCount){
 		result.pathLeft = true;
+		
 	} else {
 		result.pathLeft = false;
 	}
 	//check right path
-	if (right[check] == 1){
+	if (right[check] == 1 && obstacleRight < obstacleCount){
 		result.pathRight = true;
 	} else {
 		result.pathRight = false;
 	}
 	//check front path
-	if (front[cameraView.width / 2] == 1){
+	if (front[cameraView.width / 2] == 1 && obstacleFront < obstacleCount){
 		result.pathFront = true;
 	} else {
 		result.pathFront = false;
 	}
+
 	delete(left);
 	delete(right);
 	delete(front);
 }
+
