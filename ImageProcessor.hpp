@@ -4,18 +4,30 @@
 struct Result {
 	bool onLine;
 	double error;
+	bool pathLeft; //added
+	bool pathFront; //added
+	bool pathRight; //added
+
 } result;
 
 class ImageProcessor {
 	private:
 		// Variables
-		int* a = new int[(int) cameraView.width];
+		int* line = new int[(int) cameraView.width]; //check if on line
+		
+		int* front = new int[(int) cameraView.width]; //array checking farfront
+		int* left = new int[(int) cameraView.height]; //array checking left side
+		int* right = new int[(int) cameraView.height]; //array checking right side
 		const int ROW = (int) cameraView.height/2.0;
 		int sumOfWhiteIndexes = 0;
 		int numberOfWhitePixels = 0;
+		int obstacleLeft = 0;
+		int obstacleRight = 0;
+		int obstacleFront = 0;
 		// Class Methods
 		void getWhitePixles();
 		void calculateError();
+		void intersectionCheck(); //added
 	public:
 		// Constructor
 		ImageProcessor();
@@ -27,6 +39,7 @@ class ImageProcessor {
 ImageProcessor::ImageProcessor() {
 	takePicture();
 	calculateError();
+	intersectionCheck(); //added
 }
 
 /**
@@ -38,13 +51,38 @@ void ImageProcessor::getWhitePixles() {
 	for (int i = 0; i < cameraView.width; i++) {
 		// Get pixel whiteness
 		int pixelWhiteness = (int) get_pixel(cameraView, ROW, i, 3);
+		int frontPixelWhiteness = (int) get_pixel(cameraView, 2, i, 3);
 		// Update array based on pixel colour
 		if (pixelWhiteness == 255) {
-			a[i] = 1;
+			line[i] = 1;
 			sumOfWhiteIndexes += i;
 			numberOfWhitePixels++;
+
 		} else {
-			a[i] = 0;
+			line[i] = 0;
+		}
+		if (frontPixelWhiteness == 255) {
+			front[i] = 1;
+			obstacleFront ++;
+		} else {
+			front[i] = 0;
+		}
+	}
+	//creates an array containing white pixels on left/right edge of screen 2 pixles in
+	for (int j = 0; j < cameraView.height; j++){
+		int leftPixelWhiteness = (int) get_pixel(cameraView, j, 2, 3);
+		int rightPixelWhitness = (int) get_pixel(cameraView, j, cameraView.width - 2, 3);
+		if (leftPixelWhiteness == 255) {
+			left[j] = 1;
+			obstacleLeft ++;
+		} else {
+			left[j] = 0;
+		}
+		if (rightPixelWhitness == 255) {
+			right[j] = 1;
+			obstacleRight ++;
+		} else {
+			right[j] = 0;
 		}
 	}
 }
@@ -64,10 +102,51 @@ void ImageProcessor::calculateError() {
 		whiteLineCenter = sumOfWhiteIndexes/numberOfWhitePixels;
 		result.onLine = true;
 		result.error = arrayCenter - whiteLineCenter;
+		
 	} else {
 		whiteLineCenter = arrayCenter;
 		result.onLine = false;
 		result.error = 0;
 	}
-	delete(a);
+	delete(line);
 }
+
+/**
+ * Checks if there is a white line to the leaving to the left, right
+ * and front of the screen. If there is a line in the middle of the edge
+ * it returns bool true.
+ * Returns:
+ * 		- leftPath = true/false
+ * 		- rightPath = true/false
+ * 		- frontPath = true/flase
+ */
+void ImageProcessor::intersectionCheck() {
+	//set loction to look for line
+	int check = cameraView.height / 2; 
+	int obstacleCount = 8; //how many white pixles before item counted as an obsticle
+	 
+	//check left path
+	if (left[check] == 1 && obstacleLeft < obstacleCount){
+		result.pathLeft = true;
+		
+	} else {
+		result.pathLeft = false;
+	}
+	//check right path
+	if (right[check] == 1 && obstacleRight < obstacleCount){
+		result.pathRight = true;
+	} else {
+		result.pathRight = false;
+	}
+	//check front path
+	if (front[cameraView.width / 2] == 1 && obstacleFront < obstacleCount){
+		result.pathFront = true;
+	} else {
+		result.pathFront = false;
+	}
+
+	delete(left);
+	delete(right);
+	delete(front);
+}
+
