@@ -1,16 +1,7 @@
 #include "ImageProcessor.hpp"
 
-int core(){
-	double vLeft = 40.0;
-    double vRight = 30.0;
-    char v_go = 20;
-    double Kp = 0.1;
-    char dv = 0;
-    
-    takePicture();
-    SavePPMFile("i0.ppm",cameraView);
-    
-    while(1){
+int core(double vLeft, double vRight, double v_go, double Kp, double dv){
+    	while(1){
 		ImageProcessor imageProcessor;
 		dv = Kp*result.error;
 		
@@ -20,27 +11,17 @@ int core(){
 		setMotors(vLeft,vRight);   
 		std::cout<<" vLeft="<<vLeft<<"  vRight="<<vRight<<std::endl;
 		usleep(10000);
-	} //while
-		
+	} //while	
 }//core
 
-int completion(){
+int completion(double vLeft, double vRight, double v_go, double Kp, double dv){
 	//Variables
+	v_go = 50;
+    	double turn;
+    	int turnCount = 5;
+    	int forwardCount = 14;
 	
-	double vLeft;
-    double vRight;
-    double v_go = 50;
-    double Kp = 0.5;
-    char dv;
-    double turn;
-    int turnCount = 5;
-    int forwardCount = 14;
-    
-    
-    takePicture();
-    SavePPMFile("i0.ppm",cameraView);
-    
-    while(1){
+    	while(1){
 		ImageProcessor imageProcessor;
 		
 		// Set turning velocity
@@ -98,7 +79,7 @@ int completion(){
 			for (int i = 0; i < forwardCount; i++) {
 				setMotors(vLeft, vRight);
 			}
-}
+		}
 		
 		
 		std::cout<<" vLeft="<<vLeft<<"  vRight="<<vRight<<std::endl;
@@ -112,6 +93,12 @@ int main(){
 	if (initClientRobot() !=0){
 		std::cout<<" Error initializing robot"<<std::endl;
 	}
+	//Variables
+	double vLeft;
+    	double vRight;
+    	double v_go = 20;
+    	double Kp = 0.5;
+    	double dv;
 	
 	bool valid = false;
 	std::string mazeType;
@@ -121,7 +108,7 @@ int main(){
 	std::string compare4 = "Completion";
 	
 	while(valid == false){
-		std::cout << "Which maze would you like to use? (Core or completion): ";
+		std::cout << "Which maze are you using? (Core or completion): ";
 		std::cin >> mazeType;
 		if( mazeType == compare1 || mazeType == compare2 || mazeType == compare3 || mazeType == compare4){
 			valid = true;
@@ -134,9 +121,9 @@ int main(){
 	}
 	
 	if(mazeType == compare1 || mazeType == compare2){
-		core();
+		core(vLeft, vRight, v_go, Kp, dv);
 	} else if(mazeType == compare3 || mazeType == compare4){
-		completion();	
+		completion(vLeft, vRight, v_go, Kp, dv);	
 	} 
 
 } // main
