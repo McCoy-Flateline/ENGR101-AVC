@@ -1,6 +1,6 @@
 #include "ImageProcessor.hpp"
 
-int core(double vLeft, double vRight, double v_go, double Kp, double dv){
+void core(double vLeft, double vRight, double v_go, double Kp, double dv){
     	while(1){
 		ImageProcessor imageProcessor;
 		dv = Kp*result.error;
@@ -14,7 +14,7 @@ int core(double vLeft, double vRight, double v_go, double Kp, double dv){
 	} //while	
 }//core
 
-int completion(double vLeft, double vRight, double v_go, double Kp, double dv){
+void completion(double vLeft, double vRight, double v_go, double Kp, double dv){
 	//Variables
 	v_go = 50;
     	double turn;
