@@ -92,9 +92,6 @@ void challenge(double vLeft, double vRight, double v_go, double Kp, double dv){
     int turnCount = 5;
     int forwardCount = 14;
     
-    takePicture();
-    SavePPMFile("i0.ppm",cameraView);
-    
     while(1){
 		ImageProcessor imageProcessor;
 	
@@ -151,14 +148,13 @@ int main(){
 	while(valid == false){
 		std::cout << "Which maze are you using? (Core, completion, challenge): ";
 		std::cin >> mazeType;
-		if( mazeType == compare1 || mazeType == compare2 || mazeType == compare3 || mazeType == compare4 || mazeType == compare5 || mazeType == compare6){
+		if ( mazeType == compare1 || mazeType == compare2 || mazeType == compare3 || mazeType == compare4 || mazeType == compare5 || mazeType == compare6){
 			valid = true;
 			std::cout<<"Valid"<<std::endl;
 			
-			}
-		else{
+		} else {
 			std::cout<<"Please enter core, completion, or challenge."<<std::endl;
-			}
+		}
 	}
 	
 	if (initClientRobot() !=0){
@@ -180,5 +176,4 @@ int main(){
 		challenge(vLeft, vRight, v_go, Kp, dv);	
 	}
 	
-
 } // main
